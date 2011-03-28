@@ -11,8 +11,94 @@
 		<put-attribute name="footer" value="/templates/default/footer.jsp" />
 	</definition>
 	
+	<definition name="adminLayout" template="/templates/default/admin/Base.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/templates/default/admin/header.jsp" />
+		<put-attribute name="menu" value="/templates/default/admin/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/templates/default/admin/footer.jsp" />
+	</definition>
+
+	<definition name="adminPopupLayout" template="/templates/default/admin/popup/Base.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/templates/default/admin/popup/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/templates/default/admin/popup/footer.jsp" />
+	</definition>
+	<!-- Admin -->
+	<!--  popups -->
+	<definition name="/partsbycat.popup.tiles" extends="adminPopupLayout">
+    	<put-attribute name="title" value="Piezas por categoria" />
+        <put-attribute name="body" value="/admin/parts/partsByCategory.jsp" />
+    </definition>
+	
+	<definition name="/home.admin.tiles" extends="adminLayout">
+    	<put-attribute name="title" value="Inicio" />
+        <put-attribute name="body" value="/admin/Home.jsp" />
+    </definition>
+    
+    <definition name="/part.categories.admin.tiles" extends="adminLayout">
+    	<put-attribute name="title" value="Categories y Partes" />
+        <put-attribute name="body" value="/admin/parts/parts.jsp" />
+    </definition>      
+    <!-- admin end -->
+    <definition name="/genericError.admin.tiles" extends="adminLayout">
+    	<put-attribute name="title" value="error" />
+        <put-attribute name="body" value="/admin/Error.jsp" />
+    </definition>
+    
 	<definition name="/home.tiles" extends="baseLayout">
     	<put-attribute name="title" value="Bienvenido a Auto Piezas en Linea" />
         <put-attribute name="body" value="/Home.jsp" />
     </definition>
+    <definition name="/registroForm.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Registro de usuarios" />
+        <put-attribute name="body" value="/user/registro.jsp" />
+    </definition>
+    <definition name="/registroSuccess.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Registro de usuarios" />
+        <put-attribute name="body" value="/user/registroSucccess.jsp" />
+    </definition>
+    <definition name="/genericError.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Error" />
+        <put-attribute name="body" value="/Error.jsp" />
+    </definition>
+    <definition name="/confirmEmail.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Email confirmado..." />
+        <put-attribute name="body" value="/user/confirmEmail.jsp" />
+    </definition>
+    <definition name="/confirmEmailError.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Error de confirmación..." />
+        <put-attribute name="body" value="/user/confirmEmailError.jsp" />
+    </definition>
+
+    <definition name="/loginSuccess.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Bienvenido..." />
+        <put-attribute name="body" value="/user/loginSuccess.jsp" />
+    </definition>
+    <definition name="/login.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Iniciar sesión" />
+        <put-attribute name="body" value="/user/login.jsp" />
+    </definition>
+    <definition name="/perfil.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Perfil" />
+        <put-attribute name="body" value="/user/perfil.jsp" />
+    </definition>
+    <definition name="/NotLogged.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Error : Debe iniciar session antes de acceder." />
+        <put-attribute name="body" value="/user/NotLogged.jsp" />
+    </definition>
+    <definition name="/content.cart.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Carrito de Compras" />
+        <put-attribute name="body" value="/tienda/carrito.jsp" />
+    </definition>
+    <definition name="/partes.accesorios.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Partes y Accesorios" />
+        <put-attribute name="body" value="/tienda/PartesYAccesorios.jsp" />
+    </definition>
+    
+    <definition name="/inicio.services.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Auto Piezas en Linea - Servicios" />
+        <put-attribute name="body" value="/servicios/servicios.jsp" />
+    </definition>    
 </tiles-definitions>

@@ -1,21 +1,49 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
-</head>
-<body>
-	<b><s:actionerror /></b>
-	<s:actionmessage />
-	<s:form action="doLogin" method="POST">
-		<s:textfield key="login" label="Usuario:" />
-		<s:password key="password" label="Contraseña" />
-		<s:checkbox label="Recordarme" key="remember" />
-		<s:submit label="Iniciar Sesion"></s:submit>
+<script language="javascript">
+$(document).bind("load", function(){
+	$("#loginDiv").corner();
+});
+</script>
+	<s:actionerror theme="css_xhtml" />
+	<s:actionmessage theme="css_xhtml" />
+	<s:form action="doLogin" method="POST" theme="css_xhtml" cssClass="topSpace">
+	<div id="loginDiv" align="center">
+		<div id="infoMessage" class="ui-widget" align="left">
+		<div class="ui-state-highlight ui-corner-all" style="padding: 0pt 0.7em;">
+	
+		<h3>Iniciar sesi&oacute;n</h3>
+		<table class="normalTable" width="300" cellspacing="0" cellpadding="3">
+		<tr>
+			<td width="150">Nombre de Usuario : </td>
+			<td width="150">
+				<s:textfield name="login" /><br />
+			</td>
+		</tr>
+		<tr>
+			<td>Contrase&ntilde;a : </td>
+			<td>
+				<s:password name="password"/>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<s:checkbox name="remember"/>
+			</td>
+		
+			<td>Recordarme</td>
+		
+		</tr>
+		<tr> 
+			<td align="center">
+				<button aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-priority-primary ui-corner-all ui-button-text-only" id="button"><span class="ui-button-text">Iniciar Sesi&oacute;n</span></button>
+			</td>
+			<td align="center">
+				&nbsp;<button onClick="return false" aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-priority-secondary ui-corner-all ui-button-text-only" id="button"><span class="ui-button-text">Cancelar</span></button>
+			</td>
+		</table>
+	</div>
+	</div>
+	</div>
 	</s:form>
-</body>
-</html>

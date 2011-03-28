@@ -3,33 +3,256 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
 	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.serve.static" value="true" />
 	<package name="autowebcommons" namespace="/" extends="struts-default">
 		<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
 		</result-types>
-	</package>
-	<package name="Home" extends="autowebcommons">
-		<action name="index">
-			<result>/index.jsp</result>
-		</action>
+		<interceptors>
+			<interceptor name="login" class="com.autoservices.web.interceptor.AuthorizeInterceptor"/>
+			<interceptor name="remember" class="com.autoservices.web.interceptor.RememberMeInterceptor"/>
+			<interceptor name="adminLogin" class="com.autoservices.web.interceptor.AdminAuthorizeInterceptor"/>
+			<interceptor name="cart" class="com.autoservices.web.interceptor.CartHandlerInterceptor"/>
+		</interceptors>
 	</package>
 
-	<package name="website" extends="autowebcommons">
+	<package name="website" namespace="/" extends="autowebcommons">
 		<action name="Home" class="com.autoservices.web.action.Home">
 			<result name="success" type="tiles">/home.tiles</result>
 		</action>
 	</package>
 	
-	<package name="user" extends="autowebcommons">
-		<action name="login">
-			<result>/user/login.jsp</result>
+	<package name="adminAjaxCalls" namespace="/ajax/admin" extends="autowebcommons">
+		<action name="savePieza" class="com.autoservices.web.action.admin.PartCategories" method="saveParts">
+		 	<interceptor-ref name="adminLogin" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
 		</action>
-		<action name="doLogin" class="com.autoservices.web.action.Login">
-			<result name="none">/user/login.jsp</result>
-			<result name="success">/index.jsp</result>
-			<result name="error">/user/login.jsp</result>
+		<action name="saveCategory" class="com.autoservices.web.action.admin.PartCategories" method="saveCategory">
+		 	<interceptor-ref name="adminLogin" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+	</package>
+		
+	<package name="ajaxCalls" namespace="/ajax" extends="autowebcommons">
+		<action name="saveContactInformation" class="com.autoservices.web.action.user.ModifyProfile" method="saveContactInformation">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		
+		<action name="saveBasicInformation" class="com.autoservices.web.action.user.ModifyProfile" method="saveBasicInformation">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="saveProfileCars" class="com.autoservices.web.action.user.ModifyProfile" method="saveCars">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="deleteProfileCars" class="com.autoservices.web.action.user.ModifyProfile" method="deleteCars">
+		<!-- 	<interceptor-ref name="login" />  -->
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="getCarsTable" class="com.autoservices.web.action.user.ModifyProfile" method="getCarsTable">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success">/ajax/user/showCarsTable.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="getModelos" class="com.autoservices.web.action.commons.ajax.AjaxCalls" method="getModelosFromMarca">
+			<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/> 
+		</action>
+		<action name="getPartesByCategory" class="com.autoservices.web.action.admin.PartsByCategory" method="parts">
+			<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/> 
+		</action>  
+		<action name="getPartsByCategory" class="com.autoservices.web.action.commons.ajax.AjaxCalls" method="getParts">
+			<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/> 
+		</action> 
+		
+		<action name="cartAction" class="com.autoservices.web.action.commons.ajax.AjaxCalls" method="cartAction">
+			<result name="success">/ajax/user/commonresult.jsp</result>
+			<result name="error">/ajax/user/commonerror.jsp</result>
+		</action>
+		<action name="getModeloDescription" class="com.autoservices.web.action.commons.ajax.AjaxCalls" method="getModelo">
+			<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/> 
+		</action> 
+		<action name="getCartCount" class="com.autoservices.web.action.commons.ajax.AjaxCalls" method="getCartCount">
+			<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/> 
+		</action> 
+	</package>
+
+	<package name="tienda" namespace="/tienda" extends="autowebcommons">
+		<action name="ServiciosMultiples" class="com.autoservices.web.action.services.ServiciosAction">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="CambioAceite" class="com.autoservices.web.action.services.ServiciosAction" method="cambioAceite">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="Tintado" class="com.autoservices.web.action.services.ServiciosAction" method="tintado">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="Bateria" class="com.autoservices.web.action.services.ServiciosAction" method="bateria">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="Cerrajeria" class="com.autoservices.web.action.services.ServiciosAction" method="cerrajeria">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="ServiciosMultiples" class="com.autoservices.web.action.services.ServiciosAction">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="CambioGomas" class="com.autoservices.web.action.services.ServiciosAction" method="cambioGomas">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/inicio.services.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="PiezasYAccesorios" class="com.autoservices.web.action.parts.PartesAccesorios">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/partes.accesorios.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="Carrito" class="com.autoservices.web.action.cart.Cart">
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+    		<interceptor-ref name="remember" />
+    		<result name="success" type="tiles">/content.cart.tiles</result>
+    		<result name="error" type="tiles">/ajax/user/commonerror.jsp</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+	</package>
+	<package name="user" namespace="/user" extends="autowebcommons">
+		<action name="signup" class="com.autoservices.web.action.user.SignUp" method="populateAction">
+			<result name="success" type="tiles">/registroForm.tiles</result>
+		</action>
+		<action name="doSignup" class="com.autoservices.web.action.user.SignUp">
+			<result name="error" type="tiles">/registroForm.tiles</result>
+			<result name="success" type="tiles">/registroSuccess.tiles</result>
+		</action>
+		<action name="confirmEmail" class="com.autoservices.web.action.user.ConfirmEmail">
+			<result name="error" type="tiles">/confirmEmailError.tiles</result>
+			<result name="success" type="tiles">/confirmEmail.tiles</result>
+		</action>
+		<action name="doLogin" class="com.autoservices.web.action.user.Login">
+			<result name="success" type="tiles">/loginSuccess.tiles</result>
+			<result name="error" type="tiles">/login.tiles</result>
+		</action>
+		<action name="login" class="com.autoservices.web.action.user.Login"  method="check">
+			<result name="success" type="tiles">/login.tiles</result>
+			<result name="error" type="tiles">/home.tiles</result>
+		</action>
+		<action name="logout" class="com.autoservices.web.action.user.Logout">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success" type="tiles">/home.tiles</result>
+			<result name="login" type="tiles">/login.tiles</result>
+		</action>
+		<action name="profile" class="com.autoservices.web.action.user.Profile">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success" type="tiles">/perfil.tiles</result>
+			<result name="login" type="tiles">/login.tiles</result>
+			<result name="error" type="tiles">/genericError.tiles</result>
+		</action>
+		<action name="ModifyProfile" class="com.autoservices.web.action.user.Profile" method="modify">
+		 	<interceptor-ref name="login" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success" type="tiles">/perfil.tiles</result>
+			<result name="login" type="tiles">/login.tiles</result>
+			<result name="error" type="tiles">/genericError.tiles</result>
+		</action>
+	</package>
+	
+	<package name="admin" namespace="/adminme" extends="autowebcommons">
+		<action name="Default" class="com.autoservices.web.action.admin.Home">
+		 	<interceptor-ref name="adminLogin" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success" type="tiles">/home.admin.tiles</result>
+			<result name="login" type="tiles">/home.tiles</result>
+			<result name="error" type="tiles">/genericError.admin.tiles</result>
+		</action>
+		<action name="PartCategories" class="com.autoservices.web.action.admin.PartCategories">
+		 	<interceptor-ref name="adminLogin" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success" type="tiles">/part.categories.admin.tiles</result>
+			<result name="login" type="tiles">/home.tiles</result>
+			<result name="error" type="tiles">/genericError.admin.tiles</result>
+		</action>
+		<action name="PartsByCat" class="com.autoservices.web.action.admin.PartsByCategory">
+		 	<interceptor-ref name="adminLogin" /> 
+		 	<interceptor-ref name="servletConfig"/>
+    		<interceptor-ref name="basicStack"/>
+			<result name="success" type="tiles">/partsbycat.popup.tiles</result>
+			<result name="login" type="tiles">/home.tiles</result>
+			<result name="error" type="tiles">/genericError.admin.tiles</result>
 		</action>
 	</package>
 </struts>

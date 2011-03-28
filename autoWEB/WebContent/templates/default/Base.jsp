@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link  rel="stylesheet" type="text/css" href="http://localhost:8084/autoWEB/templates/default/css/styles.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title><tiles:insertAttribute name="title" ignore="true" /></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title><tiles:insertAttribute name="title" ignore="true" /></title>
+	<link  rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/templates/default/css/styles.css" />
+<!-- 	<link type="text/css" href="<%=request.getContextPath()%>/css/blitzer/jquery-ui-1.8.custom.css" rel="Stylesheet" />  -->	
+	<link type="text/css" href="<%=request.getContextPath()%>/js/themes/blitzer/jquery.ui.all.css" rel="stylesheet" />
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-ui-1.8.custom.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/commons.js"></script>
+	<script type="text/javascript">
+		droplinemenu.buildmenu("topmenu");
+		var CONTEXT_PATH = "<%=request.getContextPath()%>";
+		var LOGGED_USER = false;
+	</script>
+	<s:if test="#session.USER != null">
+	<script type="text/javascript">
+		LOGGED_USER = true;
+	</script>
+	</s:if>
 </head>
 <body>
+    <div id="backgroundFilter"></div>
+
 	<div align="center" id="bigContainer">
-	<div id="container" align="center">
+	<div id="container" align="center"> <!-- class="ui-corner-all-container"> -->
 		<table id="layoutTable">
 			<tr>
 				<td>
@@ -28,7 +46,7 @@
 						
 			</tr>
 			<tr>
-				<td>
+				<td align="left">
 					<div id="bodydiv">
 						<tiles:insertAttribute  name="body" />
 					</div>

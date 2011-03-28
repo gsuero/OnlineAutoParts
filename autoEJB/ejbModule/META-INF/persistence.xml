@@ -4,10 +4,25 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> 
         <!-- JNDI name of the database resource to use -->
         <non-jta-data-source>jdbc/MyAutoService</non-jta-data-source>  
-        <class>com.auto.service.entities.User</class>
-        <class>com.auto.service.entities.UserTypes</class>
-        <class>com.auto.service.entities.Contact</class>
-        <class>com.auto.service.entities.Vehicles</class>
+        <class>com.autoservice.entities.User</class>
+        <class>com.autoservice.entities.UserTypes</class>
+        <class>com.autoservice.entities.Contact</class>
+        <class>com.autoservice.entities.Vehicle</class>
+        <class>com.autoservice.entities.MailTemplate</class>
+        <class>com.autoservice.entities.UserMailConfirmation</class>
+        <class>com.autoservice.entities.UserSession</class>
+        <class>com.autoservice.entities.Pais</class>
+        <class>com.autoservice.entities.Ciudad</class>
+        <class>com.autoservice.entities.vehicles.Marca</class>
+        <class>com.autoservice.entities.vehicles.Modelo</class>
+        <class>com.autoservice.entities.vehicles.Part</class>
+        <class>com.autoservice.entities.vehicles.PartCategory</class>
+        <class>com.autoservice.entities.Suplidor</class>
+        <class>com.autoservice.entities.orders.ItemPrice</class>
+        <class>com.autoservice.entities.orders.Suppliers</class>
+        <class>com.autoservice.entities.orders.OrderItem</class>
+        <class>com.autoservice.entities.MultipleType</class>
+        <class>com.autoservice.entities.Holiday</class>        
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>  
             <property name="hibernate.hbm2ddl.auto" value="update"/> 

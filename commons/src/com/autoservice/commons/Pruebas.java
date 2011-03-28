@@ -1,51 +1,53 @@
 package com.autoservice.commons;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import com.sun.enterprise.util.Utility;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
-import static java.lang.Math.round;
-import static java.lang.Math.random;
-import static java.lang.Math.pow;
-import static java.lang.Math.abs;
-import static java.lang.Math.min;
 
 public class Pruebas {
 
 	/**
 	 * @param args
 	 * @throws NoSuchAlgorithmException
+	 * @throws ParseException 
 	 */
-	public static void main(String[] args) throws NoSuchAlgorithmException {
-		
-		System.out.println(randomstring());
+	public static void main(String[] args) throws ParseException {
+			String fecha = "08/04/2010";
+			String horario = "5:00 PM";
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm a");
+			String fe = dateFormat.format(new Date(fecha+" " + horario));
+			Date date = new Date(fecha+" " + horario);
+			
+			System.out.println(date.toString());
+			
 	}
 
-	public static String randomstring(int lo, int hi) {
-		int n = rand(lo, hi);
-		byte b[] = new byte[n];
-		for (int i = 0; i < n; i++)
-			b[i] = (byte) rand('A', 'z');
-		return new String(b, 0);
-	}
+	  public static boolean isValidEmailAddress(String aEmailAddress){
+		    if (aEmailAddress == null) return false;
+		    boolean result = true;
+		    try {
+		      new InternetAddress(aEmailAddress);
+		      if (!hasNameAndDomain(aEmailAddress) ) {
+		        result = false;
+		      }
+		    }
+		    catch (AddressException ex){
+		      result = false;
+		    }
+		    return result;
+		  }
 
-	private static int rand(int lo, int hi) {
-		java.util.Random rn = new java.util.Random();
-		int n = hi - lo + 1;
-		int i = rn.nextInt(n);
-		if (i < 0)
-			i = -i;
-		return lo + i;
-	}
 
-	public static String randomstring() {
-		return randomstring(5, 25);
-	}
-
+	  private static boolean hasNameAndDomain(String aEmailAddress){
+	    String[] tokens = aEmailAddress.split("@");
+	    return tokens.length == 2 && (tokens[0] != null && tokens[0].length() > 0) && (tokens[1] != null && tokens[1].length() > 0) ;
+	  }
 
 }

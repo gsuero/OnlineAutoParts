@@ -1,46 +1,143 @@
 body {
-	background-color: teal;
-	font-family: Verdana, Arial, Helvetica;
-	font-size: 10px;
+   background-color: #F0F3F5;
+   font-family: Verdana, Arial, Helvetica;
+   font-size: 12px;
+  /* background: #ededed;*/
+   background-image:url(/autoWEB/templates/default/img/bigbackground.jpg);
+   background-position:top center;
+   background-repeat:repeat-y;
+}
+#headerLogo {
+	border:  0px;
+	margin-top: -30px;
+	margin-left: 10px;
+}
+
+.borderOne {
+	border: solid 1px thin;	
+}
+
+h1 {
+	font-family: Verdana,Arial,Helvetica;
+	font-size: 22px;
+	color: #7a7573;
+	text-align: left;
+	font-weight: normal;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 40px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+
+.topSpace {
+	padding-top: 6px;
 }
 #bigContainer {
 	width: 100%;
 	height: 100%;
 	margin:0px;
 	padding:0px;
+	
 }
-
 #container {
-	width: 950px;
+	width: 750px;
 	background-color: white;
+	border: solid 0px #000000;
+	MARGIN: 10px auto 0px auto; 
+	margin-right:10px  auto;
+	text-align:left;
 }
-
+#headerLinks {
+	text-align: right;
+	margin-right: 15px;
+}
+#headerLinks a,#headerLinks a:visited,#headerLinks a:active,#headerLinks a:hover {
+	color: black;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+}
+#headerLinks a:hover {
+	text-decoration: underline;
+	color: red;
+}
+#backgroundFilter
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    filter: alpha(opacity=60);
+    opacity: 0.5;
+    display: none;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+.editMode
+{
+    position: absolute;
+    /*width: 100%;*/
+   /* height: 300px;*/
+    padding: 1px;
+    z-index: 1005;
+    display: none;
+    background-color: #FFFFFF;
+    border: 1px solid black;
+}
 #layoutTable {
 	width: 100%;
-	border: solid 1px #000000;
+	/*border: solid 0px #000000;*/
 }
 
 #headerdiv {
-	height: 65px;
-	border-bottom-color: gray;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
+	height: 45px;
 }
 
 #menudiv {
-	height: 40px;
+	height: 30px;
 }
 
 #bodydiv {
-	height: 300px;
-	font-size: 8px;
+	font-size: 10px;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	/*padding: 5px;*/
 }
 
 #footerdiv {
 	height: 20px;
 	text-align: right;
 	padding: 2px;
+	margin-bottom: 3px;
 }
+
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+input, select                           { margin: 3; padding: 1; border: 1px solid #CCCCCC; }
+.home *                                 { margin: 0; padding: 0; }
+a, a img                                { border: 0; text-decoration: none; outline: 0; }
+
+#textSlide                              { padding: 10px 30px; }
+#textSlide h3                           { font: 20px Georgia, Serif; }
+#textSlide h4                           { text-transform: uppercase; font: 15px Georgia, Serif; margin: 10px 0; }
+#textSlide ul                           { list-style: disc; margin: 0 0 0 25px; }
+#textSlide ul li                        { display: list-item; }
+
+#quoteSlide                             { padding: 30px; }
+#quoteSlide blockquote                  { font: italic 13px Georgia, Serif; text-align: center; color: #444; margin: 0 0 10px 0; }
+#quoteSlide p                           { text-align: center; }
 
 #tableHeader{
 	border: 0px;
@@ -49,4 +146,458 @@ body {
 	width: 100%;
 	height: 100%;
 	
+}
+
+#centerTableFull {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+.normalTable {
+	border: 0px;
+	margin: 0px;
+	padding-top: 8px;
+	/*padding-top: 3px; */
+	margin-top: 3px;
+}
+.normalTable form td, #divCarsList td {
+	margin-top: 6px;
+	margin-bottom: 6px;
+	padding: 4px;
+} 
+
+.tableBox {
+	border: 1px;
+	border-style: solid;
+	padding: 5px;
+	/*padding-left: 6px;*/
+	border-color: #B9B9B9;
+	width: 100%;
+}
+
+
+.cotiza {
+	margin-left: 7px;
+	margin-right: 7px;
+	padding: 5px;
+	width: 97%;
+	height: 195px;
+}
+
+.tableBox th {
+	border-bottom-color: gray;
+	border-bottom-style: dashed;
+	border-bottom-width: 1px; 
+	height: 20px;
+	font-size: 13px;
+}
+
+.iteredRow {
+	background-color: rgb(242,242,242);
+}
+#infoMessage {
+	width: 350px;
+}
+#errorMessage {
+	width: 350px;
+}
+
+#editar {
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+	
+	/*padding-right: 6px;*/
+	text-decoration: none;
+	
+}
+
+#basicaButtons {
+	padding-bottom: 3px;
+	padding-top: 6px;
+	padding-right: 6px;
+	padding-left: 6px;
+}
+
+#leftFloat { float: left; }
+#rightFloat {float: right;}
+#clearSides { clear: both; }
+
+#vehiculosModify input, #vehiculosModify select{
+	width: 135px;
+}
+
+#wwctrl_car0, #wwctrl_car1,#wwctrl_car2,#wwctrl_car3,#wwctrl_car4 {
+	display:none;
+	float: right;
+}
+
+.error {
+	color: red;
+}
+
+/*Credits: By Santosh Setty (http://webdesigninfo.wordpress.com) */
+/*Posted to: Dynamic Drive CSS Library (http://www.dynamicdrive.com/style/) */
+
+.glossymenu{
+	position: relative;
+	padding: 0 0 0 34px;
+	margin: 0 auto 0 auto;
+	background: url(/autoWEB/templates/default/img/menur_bg.gif) repeat-x; /*tab background image path*/
+	height: 46px;
+	list-style: none;
+}
+
+.glossymenu li{
+	float:left;
+}
+
+.glossymenu li a{
+	float: left;
+	display: block;
+	color:#000;
+	text-decoration: none;
+	font-family: sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	padding:0 0 0 16px; /*Padding to accomodate left tab image. Do not change*/
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	cursor: pointer;	
+}
+
+.glossymenu li a b{
+	float: left;
+	display: block;
+	padding: 0 24px 0 8px; /*Padding of menu items*/
+}
+
+.glossymenu li.current a, .glossymenu li a:hover{
+	color: #fff;
+	background: url(/autoWEB/templates/default/img/menur_hover_left.gif) no-repeat; /*left tab image path*/
+	background-position: left;
+}
+
+.glossymenu li.current a b, .glossymenu li a:hover b{
+	color: #fff;
+	background: url(/autoWEB/templates/default/img/menur_hover_right.gif) no-repeat right top; /*right tab image path*/
+}
+
+/* Sub level menus*/
+#submenu{
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	background: #D4340C; /*sub menu background color */
+	visibility: visible;
+	width: 706px;
+	height: 28px;
+	margin-right: 35px;
+}
+
+/* Sub level menu links style */
+#submenu li a{
+	font: bold 11px Verdana;
+	color: white;
+	padding: 6px;
+	padding-right: 8px;
+	margin: 0;
+	background: #D4340C; /*sub menu background color */
+	height: 13px;
+}
+
+#submenu li a span{
+background: #D4340C; /*sub menu background color */
+}
+
+#submenu li a:hover{ /*sub menu links' background color onMouseover. Add rounded edges in capable browsers */
+background: rgb(179,0,0);
+-webkit-border-radius: 5px;  
+-moz-border-radius: 5px; 
+-khtml-border-radius: 5px;  
+border-radius: 5px;
+text-decoration: underline;
+}
+#submenu ul, #submenu li {
+	  list-style-type: none;
+}
+#topmenu {
+	width: 746px;
+}
+.boxDiv {
+	border: solid 1px #B9B9B9;
+	margin-left: 7px;
+	margin-right: 7px;
+	padding: 5px;
+	text-align: center;
+}
+
+#accesorios {
+	float:left;
+	width: 147px;
+	height: 180px;
+	background-image:url(/autoWEB/templates/default/img/box_accesorios.jpg);
+    background-position: -23px -24px;
+    border: solid 0px #B9B9B9;
+}
+
+#accesorios:hover {
+	cursor: pointer; cursor: hand;
+	background-image:url(/autoWEB/templates/default/img/box_accesorios_on.jpg);
+}
+#cambioVidrio:hover {
+	cursor: pointer; cursor: hand;
+	background-image:url(/autoWEB/templates/default/img/box_cristales_on.jpg);
+}
+#cambioVidrio {
+	margin-left: 10px;
+	float:center;
+	float:left;
+	width: 148px;
+	height: 180px;
+	background-image:url(/autoWEB/templates/default/img/box_cristales.jpg);
+    background-position: -23px -24px;
+    border: solid 0px #B9B9B9;
+}
+#cambioBateria span {
+	color: white;
+	top: 60px;
+}
+#cambioBateria {
+	float:right;
+	width: 147px;
+	height: 180px;
+	font-size: 20px;
+	display: table-cell;
+    vertical-align: middle;
+    top: 50%;
+    background-image:url(/autoWEB/templates/default/img/box_batteries.jpg);
+    background-position: -23px -24px;
+    border: solid 0px #B9B9B9;
+}
+#cambioBateria:hover {
+	cursor: pointer; cursor: hand;
+    background-image:url(/autoWEB/templates/default/img/box_batteries_on.jpg);
+}
+
+#specials {
+	width: 92%;
+	height: 100px;
+	vertical-align: middle;
+	font-size: 20px;
+}
+
+#footer {
+	border: solid 1px #B9B9B9;
+	background-color: #B9B9B9;
+	margin-top: 10px;
+	/*margin-right: 7px;*/
+	padding: 9px;
+	text-align: center;
+	width: 98%;
+	color: #FFFFFF;
+	font-size: 10px;
+}
+#footer a, #footer a:visited, #footer a:active, #footer a:current {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+.borderLeftDotted {
+	border-left-color: #000000;
+	border-left-style: dotted;
+	border-left-width: 1px;
+}
+/*
+.classWithMargin{ margin: 3; padding: 3; }
+input{ 
+	margin: 10;
+	padding: 10; 
+}*/
+
+#selectCar {
+	width: 150px;
+}
+.selectMultiple {
+	width: 200px;
+}
+.selectMultipleQty {
+	width: 50px;
+}
+.centered {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.disabledDiv
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    display: none;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+#shoppingCartTable {
+	border-bottom-style: solid;
+	border-bottom-color: #7a7573;
+	border-bottom-width: 1px;
+	width: 75%;
+	/*background-color: #EEEEEE;*/
+}
+
+#shoppingCartTableOptions {
+	width: 75%;
+}
+
+#shoppingCartTable th {
+	padding-top: 3px;
+	font-weight: bold;
+	background-color: #7f7573;
+	color: #ffffff;
+	height: 21px;
+}
+#shoppingCartTable td span a, #shoppingCartTable td span a:visited, #shoppingCartTable td a {
+	color: #484442;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-right: 10px;
+	text-decoration: none;
+	font-size: 13px;
+}
+#shoppingCartTable td span a:hover, #shoppingCartTable td span a:active {
+	color: #000000;
+	text-decoration: underline;
+}
+
+#shoppingCartTable td a, #shoppingCartTable td a:visited {
+	color: #484442;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-right: 10px;
+	text-decoration: none;
+}
+
+#shoppingCartTable td a:hover, #shoppingCartTable td a:active {
+	color: #000000;
+	text-decoration: underline;
+}
+
+.item {
+	border-bottom-style: solid;
+	border-bottom-color: #CECBC9;
+	border-bottom-width: 1px;
+}
+#shoppingCartTable td  {
+	padding-top: 3px;
+	font-weight: normal;
+	background-color: #FFFFFF;
+	color: #000000;
+	height: 21px;
+}
+#shoppingCartTable h2 {
+	font-size: 14px;
+	color: #7a7573;
+	font-weight: bold;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+.clearfix {
+	display: inline-block;
+}
+.clearfix {
+	display: block;
+}
+#continueShopping {
+	float: right;
+	padding-top: 13px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	font-size: 11px;
+	color: #4d5d8a;
+}
+
+
+#totalsTable {
+	border: 0px;
+	background-color: #F0EBEA;
+	width: 250px;
+	color: #666666;	
+	padding: 0px;
+	margin: 0px;
+}
+#totalsTable td {
+	padding: 5px;
+}
+
+#totalsTable th {
+	background-color: #B1ABA5;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 10px;
+	padding: 5px;
+}
+
+#totalsTable td#footer {
+	background-color: #7F7573;
+	color: #FFFFF;
+	font-weight: normal;
+	border-top-color: #FFFFFF;
+	border-top-width: 1px;
+	border-top-style: solid;
+	padding: 5px;	
+}
+#tablaAceiteService {
+	border: 0 solid #FFFFFF;
+}
+#tablaAceiteService td {
+	text-align: center;
+	vertical-align: middle;
+}
+#tablaAceiteService label {
+	font-size: 10px;
+	font-weight: bold;
+} 
+
+.tooltips span {
+    display:none;
+    position:absolute;
+    z-index:1000;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+.tooltip-style1 {
+	background:#D56F6F url(/autoWEB/images/support.png) 10px center no-repeat;
+	color:white;
+	min-height:30px;
+	padding:10px 20px 10px 65px;
+	opacity:0.9;
 }
