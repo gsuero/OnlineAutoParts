@@ -17,8 +17,8 @@ import javax.mail.internet.MimeMessage;
 public class Mailer {
 	private static final String SMTP_HOST_NAME = "smtp.gmail.com";
 	private static final String SMTP_PORT_NUMBER = "465";
-	private static final String SMTP_AUTH_USER = "cuantico@gmail.com";
-	private static final String SMTP_AUTH_PWD  = "maldito4Ever";
+	private static final String SMTP_AUTH_USER = "mail@mail.com";
+	private static final String SMTP_AUTH_PWD  = "password";
 
 	private String from;
 	private String to;
