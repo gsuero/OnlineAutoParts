@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/templates/default/Base.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/templates/default/header.jsp" />
+		<put-attribute name="menu" value="/templates/default/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/templates/default/footer.jsp" />
+	</definition>
+	
+	<definition name="/home.tiles" extends="baseLayout">
+    	<put-attribute name="title" value="Bienvenido a Auto Piezas en Linea" />
+        <put-attribute name="body" value="/Home.jsp" />
+    </definition>
+</tiles-definitions>
