@@ -1,0 +1,95 @@
+	<link  rel="stylesheet" type="text/css" href="/autoWEB/templates/default/css/styles.css" />
+<!-- 	<link type="text/css" href="/autoWEB/css/blitzer/jquery-ui-1.8.custom.css" rel="Stylesheet" />  -->	
+	<link type="text/css" href="/autoWEB/js/themes/blitzer/jquery.ui.all.css" rel="stylesheet" />
+	<script type="text/javascript" src="/autoWEB/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="/autoWEB/js/jquery-ui-1.8.custom.min.js"></script>
+	<script type="text/javascript" src="/autoWEB/js/commons.js"></script>
+<link rel="stylesheet" href="/autoWEB/css/page.css"
+	type="text/css" media="screen" />
+<link rel="stylesheet"
+	href="/autoWEB/css/slider.css" type="text/css"
+	media="screen" />
+<script type="text/javascript"
+	src="/autoWEB/js/jquery.easing.1.2.js"></script>
+<script src="/autoWEB/js/jquery.anythingslider.js"
+	type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+	function formatText(index, panel) {
+		return index + "";
+	}
+
+	$(function() {
+		$('.anythingSlider').anythingSlider( {
+			easing : "easeInOutExpo", // Anything other than "linear" or "swing" requires the easing plugin
+			autoPlay : true, // This turns off the entire FUNCTIONALY, not just if it starts running or not.
+			delay : 3000, // How long between slide transitions in AutoPlay mode
+			startStopped : false, // If autoPlay is on, this can force it to start stopped
+			animationTime : 600, // How long the slide transition takes
+			hashTags : true, // Should links change the hashtag in the URL?
+			buildNavigation : true, // If true, builds and list of anchor links to link to each slide
+			pauseOnHover : true, // If true, and autoPlay is enabled, the show will pause on hover
+			startText : "Iniciar", // Start text
+			stopText : "Parar", // Stop text
+			navigationFormatter : formatText
+		// Details at the top of the file on this use (advanced use)
+				});
+
+		$("#slide-jump").click(function() {
+			$('.anythingSlider').anythingSlider(6);
+		});
+
+	});
+</script>
+
+<table class="normalTable" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td width="520" align="left">
+			<div class="anythingSlider">
+	          <div class="wrapper">
+	            <ul>
+	              <li>
+	                 <div id="quoteSlide">
+	                    <blockquote>Life is conversational. Web design should be the same way. On the web, youre talking to someone youve probably never met – so its important to be clear and precise. Thus, well structured navigation and content organization goes hand in hand with having a good conversation.</blockquote>
+	                    <p> - <a id="perma" href="http://quotesondesign.com/chikezie-ejiasi/">Chikezie Ejiasi</a></p>
+	                 </div>
+	              </li> 
+	              <li>                 
+	                 <div id="textSlide">
+	                    <!-- <img src="/autoWEB/images/251356.jpg" alt="tomato sandwich" style="float: right; margin: 0 0 2px 10px;" /> -->
+	                    <h3>Queenies Killer Tomato Bagel Sandwich</h3>
+	                    <h4>Ingredients</h4>
+	                    <ul>
+	                        <li>1 bagel, split and toasted</li>
+	                        <li>2 tablespoons cream cheese</li>
+	                        <li>1 roma (plum) tomatoes, thinly sliced</li>
+	                        <li>salt and pepper to taste</li>
+	                        <li>4 leaves fresh basil</li>
+	                    </ul>
+	                 </div>
+	              </li>
+	              <li>
+	                 <div id="quoteSlide">
+	                    <blockquote>Life is conversational. Web design should be the same way. On the web, youre talking to someone youve probably never met – so its important to be clear and precise. Thus, well structured navigation and content organization goes hand in hand with having a good conversation.</blockquote>
+	                    <p> - <a id="perma" href="http://quotesondesign.com/chikezie-ejiasi/">Chikezie Ejiasi</a></p>
+	                 </div>
+	              </li>
+	             <li>
+	         	    <img src="/autoWEB/images/slides/nissanV6.jpg" border="0"></img>
+	             </li>
+	             <li>
+	         	    <img src="/autoWEB/images/slides/bmw.jpg" border="0"></img>
+	             </li>	
+	             <li>
+	                 <div id="quoteSlide">
+	                    <blockquote>Life is conversational. Web design should be the same way. On the web, youre talking to someone youve probably never met – so its important to be clear and precise. Thus, well structured navigation and content organization goes hand in hand with having a good conversation.</blockquote>
+	                    <p> - <a id="perma" href="http://quotesondesign.com/chikezie-ejiasi/">Chikezie Ejiasi</a></p>
+	                 </div>
+	              </li>              
+	            </ul>        
+	          </div>
+	        </div>
+        </td>
+	<td></td>
+	</tr>
+</table>

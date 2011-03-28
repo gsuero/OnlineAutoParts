@@ -1,0 +1,1 @@
+<%@ taglib prefix="s" uri="/struts-tags"%><s:actionerror id="actionError" theme="simple" />

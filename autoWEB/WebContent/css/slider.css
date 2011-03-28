@@ -1,0 +1,30 @@
+/*
+    anythingSlider v1.2
+    
+    By Chris Coyier: http://css-tricks.com
+    with major improvements by Doug Neiner: http://pixelgraphics.us/
+    based on work by Remy Sharp: http://jqueryfordesigners.com/
+*/
+
+.anythingSlider                         { width: 520px; height: 218px; position: relative; margin: 0 auto 0px; }
+.anythingSlider .wrapper                { width: 520px; overflow: auto; height: 211px; margin: 0 0px; position: absolute; top: 0; left: 0; }
+
+.anythingSlider .wrapper ul             { width: 32700px; list-style: none; position: absolute; top: 0; left: 0; background: #eee; border-top: 3px solid #e0a213; border-bottom: 3px solid #e0a213; margin: 0; }
+.anythingSlider ul li                   { display: block; float: left; padding: 0; height: 190px; width: 520px; margin: 0px 0px 0px 0px; }
+.anythingSlider .arrow                  { display: hidden; height: 150px; width: 67px; text-indent: -9999px; position: absolute; top: 65px; cursor: pointer; }
+
+.anythingSlider .forward                { background-position: 0 0; right: -20px; }
+.anythingSlider .back                   { background-position: -67px 0; left: -20px; }
+.anythingSlider .forward:hover          { background-position: 0 -200px; }
+.anythingSlider .back:hover             { background-position: -67px -200px; }
+
+#thumbNav                               { position: relative; right:52px; top: 196px; text-align: right; }
+#thumbNav a                             { color: black; font-size:9px; display: inline-block; padding: 2px 3px; height: 12px; margin: 0 5px 0 0; background: #c58b04 url(../images/cellshade.png) repeat-x; text-align: center; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+#thumbNav a:hover                       { background-image: none; }
+#thumbNav a.cur                         { background: #e0a213; }
+
+#start-stop                             { background: green; background-image: url(../images/cellshade.png); background-repeat: repeat-x; color: white; padding: 2px 5px; width: 43px; text-align: center; position: absolute; right: 0px; top: 196px; -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; -webkit-border-bottom-left-radius: 5px; }
+#start-stop.playing                     { background-color: red; }
+#start-stop:hover                       { background-image: none; }
+.anythingSlider .wrapper ul ul          { position: static; margin: 0; background: none; overflow: visible; width: auto; border: 0; }
+.anythingSlider .wrapper ul ul li       { float: none; height: auto; width: auto; background: none; }
